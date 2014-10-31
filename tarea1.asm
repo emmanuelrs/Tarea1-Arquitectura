@@ -21,27 +21,27 @@
   
    
   lunes:
-	       db "#       #    #  ##    #  #######   ###### ",10
-	       db "#       #    #  # #   #  #	   #	     ",10
-	       db "#       #    #  #  #  #  #####     ###### ",10
-	       db "#       #    #  #   # #  #	        #    ",10
-	       db "######  ######  #    ##  #######   ###### ",10
+	       db "L       L    L  LL    L  LLLLLLL   LLLLLL ",10
+	       db "L       L    L  L L   L  L 	   L	     ",10
+	       db "L       L    L  L  L  L  LLLLL     LLLLLL ",10
+	       db "L       L    L  L   L L  L	        L    ",10
+	       db "LLLLLL  LLLLLL  L    LL  LLLLLLL   LLLLLL ",10
 	lenLunes: equ $-lunes
 
 	martes:
-		db "**       **   ****   ******    **********   ********  ********  ",10 
-		db "** ** ** **  ******  **   **   **********   **        **        ",10 
-		db "**  **   **  **  **  ** ***        **       *****     ********  ",10 
-		db "**       **  ******  **  **        **       **              **  ",10 
-		db "**       **  **  **  **   **       **       ********  ********  ",10 
+		db "KK       KK    KK    KKKKK     KKKKKKKKKK   KKKKKKKK  KKKKKKKK  ",10 
+		db "KK KK KK KK   KKKK   K   KK    KKKKKKKKKK   KK        KK        ",10 
+		db "KK  KK   KK  KK  KK  KK KKK        KK       KKKKK     KKKKKKKK  ",10 
+		db "KK       KK  KKKKKK  KK  KK        KK       KK              KK  ",10 
+		db "KK       KK  KK  KK  KK   KK       KK       KKKKKKKK  KKKKKKKK  ",10 
 	lenMartes: equ $-martes
 
 	miercoles:
-		db"%%      %%  %%%%%%%  %%%%%%  %%%%%%   %%%%%%  %%%%%%  %%      %%%%%%  %%%%%%  ",10
-		db"% %    % %     %     %%      %%  %%%  %%      %    %  %%      %       %       ",10
-		db"%  % %   %     %     %%%%    %%   %%  %%      %    %  %%      %%%%    %%%%%%  ",10
-		db"%   %    %     %     %%      %%  %%   %%      %    %  %%      %            %  ",10
-		db"%        %  %%%%%%%  %%%%%%  %%   %%  %%%%%%  %%%%%%  %%%%%%% %%%%%%  %%%%%%  ",10
+		db"MM      MM  MMMMMMM  MMMMMM  MMMMMM   MMMMMM  MMMMMM  MM      MMMMMM  MMMMMM  ",10
+		db"M M    M M     M     MM      MM  MMM  MM      M    M  MM      M       M       ",10
+		db"M  M M   M     M     MMMM    MM   MM  MM      M    M  MM      MMMM    MMMMMM  ",10
+		db"M   M    M     M     MM      MM  MM   MM      M    M  MM      M            M  ",10
+		db"M        M  MMMMMMM  MMMMMM  MM   MM  MMMMMM  MMMMMM  MMMMMMM MMMMMM  MMMMMM  ",10
 	lenMiercoles: equ $-miercoles
 	
 	jueves:
@@ -74,7 +74,9 @@
 		db"DD   DD  DD    DD  DD  DD  DD      DD      DD DD DD  DD  DDD   DD    DD ",10
 		db"DD   DD  DD    DD  DD      DD      DD      DD  D DD  DD   DD   DD    DD ",10
 		db"DDDDDD   DDDDDDDD  DD      DD   DDDDDDDD   DD    DD  DDDDDDD   DDDDDDDD ",10
-	lenDomingo: equ $-domingo   
+	lenDomingo: equ $-domingo
+
+ 
 
 .UDATA
     response resb 1             ; Reservo un byte en memoria para almacenar el resultado de la pregunta inicial.
