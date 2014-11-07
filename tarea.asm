@@ -10,116 +10,181 @@
 %include "/home/emmanuel/Desktop/TareaArqui/io.mac"
 
 .DATA
-   msgDia: db 'Ingrese el día: ',0
-   msgMes: db 'Ingrese el mes: ',0
-   msgAhno:db 'Ingrese el año: ',0
-   slash: db '/',0
-   confirm_msg1 db 'Confirma que esta es la fecha que desea evaluar? ',0
-   confirm_msg2 db ' (y/n) ',0
-   bisiesto: db "Es Bisiesto",0Dh,0Ah,0
-   noesBisiesto: db "No es Bisiesto",0Dh,0Ah,0
-  
-   
-  lunes:
-	       db "L       L    L  LL    L  LLLLLLL   LLLLLL ",10
-	       db "L       L    L  L L   L  L 	   L	     ",10
-	       db "L       L    L  L  L  L  LLLLL     LLLLLL ",10
-	       db "L       L    L  L   L L  L	        L    ",10
-	       db "LLLLLL  LLLLLL  L    LL  LLLLLLL   LLLLLL ",10
+
+lunes:
+	       db "L       U    U  NN    N  EEEEEE   SSSSSS ",10
+	       db "L       U    U  N N   N  E 	   S	     ",10
+	       db "L       U    U  N  N  N  EEEE     SSSSSS ",10
+	       db "L       U    U  N   N N  E	        S    ",10
+	       db "LLLLLL  UUUUUU  N    NN  EEEEEEE   SSSSSS ",10
 	lenLunes: equ $-lunes
 
 	martes:
-		db "KK       KK    KK    KKKKK     KKKKKKKKKK   KKKKKKKK  KKKKKKKK  ",10 
-		db "KK KK KK KK   KKKK   K   KK    KKKKKKKKKK   KK        KK        ",10 
-		db "KK  KK   KK  KK  KK  KK KKK        KK       KKKKK     KKKKKKKK  ",10 
-		db "KK       KK  KKKKKK  KK  KK        KK       KK              KK  ",10 
-		db "KK       KK  KK  KK  KK   KK       KK       KKKKKKKK  KKKKKKKK  ",10 
+		db "MM       MM    AA    RRRRR     TTTTTTTTTT   EEEEEEEE  SSSSSSSS  ",10 
+		db "MM MM MM MM   AAAA   R   RR    TTTTTTTTTT   EE        SS        ",10 
+		db "MM  MM   MM  AA  AA  RR RRR        TT       EEEEE     SSSSSSSS  ",10 
+		db "MM       MM  AAAAAA  RR  RR        TT       EE              SS  ",10 
+		db "MM       MM  AA  KK  RR   RR       TT       EEEEEEEE  SSSSSSSS  ",10 
 	lenMartes: equ $-martes
 
 	miercoles:
-		db"MM      MM  MMMMMMM  MMMMMM  MMMMMM   MMMMMM  MMMMMM  MM      MMMMMM  MMMMMM  ",10
-		db"M M    M M     M     MM      MM  MMM  MM      M    M  MM      M       M       ",10
-		db"M  M M   M     M     MMMM    MM   MM  MM      M    M  MM      MMMM    MMMMMM  ",10
-		db"M   M    M     M     MM      MM  MM   MM      M    M  MM      M            M  ",10
-		db"M        M  MMMMMMM  MMMMMM  MM   MM  MMMMMM  MMMMMM  MMMMMMM MMMMMM  MMMMMM  ",10
+		db"MM      MM  IIIIIII  EEEEEE  RRRRRR   CCCCCC  OOOOOO  LL      EEEEEE  SSSSSS  ",10
+		db"M M    M M     I     EE      RR  RRR  CC      O    O  LL      E       S       ",10
+		db"M  M M   M     I     EEEE    RR   RR  CC      O    O  LL      EEEE    SSSSSS  ",10
+		db"M   M    M     I     EE      RR  RR   CC      O    O  LL      E            S  ",10
+		db"M        M  IIIIIII  EEEEEE  RR   RR  CCCCCC  OOOOOO  LLLLLLL EEEEEE  SSSSSS  ",10
 	lenMiercoles: equ $-miercoles
 	
 	jueves:
-	     db"JJJJJJJJJ  JJ     JJ   JJJJJJJ   JJ      JJ   JJJJJJJ  JJJJJJJJ ",10
-	     db"    JJ     JJ     JJ   JJ         JJ    JJ    JJ       JJ       ",10
-	     db"    JJ     JJ     JJ   JJJJ        JJ  JJ     JJJJ     JJJJJJJJ ",10
-	     db"    JJ     JJ     JJ   JJ           JJJJ      JJ             JJ ",10
-	     db"JJJJJ       JJJJJJ     JJJJJJJ       JJ       JJJJJJJ  JJJJJJJJ ",10
+	     db"JJJJJJJJJ  UU     UU   EEEEEEE   VV      VV   EEEEEEE  SSSSSSSS ",10
+	     db"    JJ     UU     UU   EE         VV    VV    EE       SS       ",10
+	     db"    JJ     UU     UU   EEEE        VV  VV     EEEE     SSSSSSSS ",10
+	     db"    JJ     UU     UU   EE           VVVV      EE             SS ",10
+	     db"JJJJJ       UUUUUU     EEEEEEE       VV       EEEEEEE  SSSSSSSS ",10
 	lenJueves: equ $-jueves
 
 	viernes:
-		db"VV      VV  VVVVVVVV  VVVVVVV  VVVVV    vvvv   vv  vvvvvv  vvvvvvv ",10
-		db" VV    VV      VV     VV       VV   V   vv vv  vv  vv      vv      ",10
-		db"  VV  VV       VV     VVVV     VV vV    vv  vv vv  vvvv    vvvvvvv ",10
-		db"   VVVV        VV     VV       VV  VV   vv   vvvv  vv           vv ",10
-		db"    VV      VVVVVVVV  VVVVVVV  VV   VV  vv    vvv  vvvvvv  vvvvvvv ",10
+		db"VV      VV  IIIIIIII  EEEEEEE  RRRRR    NNNN   NN  EEEEEE  SSSSSSS ",10
+		db" VV    VV      II     EE       RR   R   NN NN  NN  EE      SS      ",10
+		db"  VV  VV       II     EEEE     RR RR    NN  NN NN  EEEE    SSSSSSS ",10
+		db"   VVVV        II     EE       RR  RR   NN   NNNN  EE           SS ",10
+		db"    VV      IIIIIIII  EEEEEEE  RR   RR  NN    NNN  EEEEEE  SSSSSSS ",10
 	lenViernes: equ $-viernes
 
 	sabado:
-	     db"SSSSSSS  SSSSSSSSS  SSSSSSSS  SSSSSSSSS   SSSSSSS   SSSSSSSS  ",10
-	     db"SS       SS     SS  SS    SS  SS     SS   SS    SS  SS    SS  ",10
-	     db"SSSSSSS  SSSSSSSSS  SSSSSS    SSSSSSSSS   SS    SS  SS    SS  ",10
-	     db"     SS  SS     SS  SS    SS  SS     SS   SS    SS  SS    SS  ",10
-	     db"SSSSSSS  SS     SS  SSSSSSSS  SS     SS   SSSSSSS   SSSSSSSS  ",10
+	     db"SSSSSSS  AAAAAAAAA  BBBBBBBB  AAAAAAAAA   DDDDDDD   OOOOOOOO  ",10
+	     db"SS       AA     AA  BB    BB  AA     AA   DD    DD  00    OO  ",10
+	     db"SSSSSSS  AAAAAAAAA  BBBBBB    AAAAAAAAA   DD    DD  00    OO  ",10
+	     db"     SS  AA     AA  BB    BB  AA     AA   DD    DD  00    OO  ",10
+	     db"SSSSSSS  AA     AA  BBBBBBBB  AA     AA   DDDDDDD   00000000  ",10
 	lenSabado: equ $-sabado
 
 	domingo:
-		db"DDDDDD   DDDDDDDD  DDD    DDD   DDDDDDDD   DD    DD  DDDDDDD   DDDDDDDD ",10
-		db"DD   DD  DD    DD  DDDD  DDDD      DD      DDD   DD  DD        DD    DD ",10
-		db"DD   DD  DD    DD  DD  DD  DD      DD      DD DD DD  DD  DDD   DD    DD ",10
-		db"DD   DD  DD    DD  DD      DD      DD      DD  D DD  DD   DD   DD    DD ",10
-		db"DDDDDD   DDDDDDDD  DD      DD   DDDDDDDD   DD    DD  DDDDDDD   DDDDDDDD ",10
-	lenDomingo: equ $-domingo
+		db"DDDDDD   OOOOOOOO  MMM    MMM   IIIIIIII   NN    NN  GGGGGGG   OOOOOOOO ",10
+		db"DD   DD  OO    OO  MMMM  MMMM      II      NNN   NN  GG        OO    OO ",10
+		db"DD   DD  OO    OO  MM  MM  MM      II      NN NN NN  GG  GGG   OO    OO ",10
+		db"DD   DD  OO    OO  MM      MM      II      NN  N NN  GG   GG   OO    OO ",10
+		db"DDDDDD   OOOOOOOO  MM      MM   IIIIIIII   NN    NN  GGGGGGG   OOOOOOOO ",10
+	
 
- 
+        lenDomingo: equ $-domingo
+
+	instruccion1: db "Ingrese una fecha con el siguiente formato dd/mm/yyyy",0Dh,0Ah,0
+       
+
+	;fecha: db "__/__/____",10
+	;lenFecha: equ $-fecha
+	
+	day: db "__",0
+	lenDay: equ $-day 
+	
+	month: db "__",0
+	lenMonth: equ $-month 
+
+	year: db "____",0
+	lenYear: equ $-year
+
+	bisiesto: db "Es Bisiesto",0Dh,0Ah,0
+        noesBisiesto: db "No es Bisiesto",0Dh,0Ah,0
+	msjPregunta: db "Desea probar otra fecha? (y/n) ",0
 
 .UDATA
-    response resb 1             ; Reservo un byte en memoria para almacenar el resultado de la pregunta inicial.
-    resultado resb 32           ; Reservo 32 bytes de memoria para almacenar el resultado final de la operación que calcula el día.
-    dia resb 32			; Reservo 32 bytes de memoria para almacenar el día que ingresa el usuario.
-    mes resb 32			; Reservo 32 bytes de memoria para almacenar el mes que ingresa el usuario.
-    anno resb 32		; Reservo 32 bytes de memoria para almacenar el año que ingresa el usuario.
-    
+
+        bufferLectura: resb 1024		
+	lenLectura: equ $-bufferLectura
+	fecha resb 32
+	dia resb 32
+	mes resb 32
+	anno resb 32
+        resultado resb 32
+        response resb 1
+	
 .CODE
-     .STARTUP
-     
-inicio:
+   .STARTUP
+main:
+    PutStr instruccion1
+    GetStr fecha
+    call determina
+    jmp salir
 
-;    Este procedimiento imprime el mensaje de ingreso para la fecha
-;    y guarda los datos que el usuario ingresa.
+determina:
+        call determinarDay
+        call determinarMonth 
+        call determinarYear
+        call atoiDia
+        call atoiMes
+        call atoiAnno
+	call verificarMes
+	call revisaBisiesto
+determinarDay:
+	mov bl,byte[fecha + 0] ; 
+	mov byte[day + 0],bl
+	mov cl,byte[fecha + 1]
+	mov byte[day + 1],cl 
+	ret
+determinarMonth:
+	mov bl,byte[fecha + 3]
+	mov byte[month + 0],bl
+	mov cl,byte[fecha + 4]
+	mov byte[month + 1],cl
+	ret 
+determinarYear:
+	mov bl,byte[fecha + 6]
+	mov byte[year + 0], bl
+	mov cl,byte[fecha + 7]
+	mov byte[year + 1],cl
+	mov bl, byte[fecha + 8]
+	mov byte[year + 2],bl
+	mov cl, byte[fecha + 9]
+	mov byte[year + 3], cl
+	ret
+atoiDia:
+        xor EAX,EAX
+        mov AL,byte[day + 0]
+        mov CL,byte[day + 1]
+        sub AL,30h
+        sub CL,30h
+        mov BL,10
+        mul bx
+        add AX,CX
+        mov [dia],AX
+        ret
+atoiMes: 
+        xor EAX,EAX
+        mov AL,byte[month + 0]
+        mov CL,byte[month + 1]
+        sub AL,30h
+        sub CL,30h
+        mov BL,10
+        mul bx
+        add AX,CX
+        mov [mes],AX
+        ret
 
-     PutStr msgDia               
-     GetInt [dia]
-     PutStr msgMes
-     GetInt [mes]
-     PutStr msgAhno
-     GetInt [anno]
-    
-  
-confirmacion:
-
-;   Este procedimiento imprime en pantalla el mensaje de confirmación
-;   al usuario para que este este seguro de la fecha que desea averiguar.
-;	
-     PutStr confirm_msg1
-     PutInt [dia]	
-     PutStr slash
-     PutInt [mes]	 
-     PutStr slash	
-     PutInt [anno]	
-     PutStr confirm_msg2
-
-;    Guarda el resultado que el usuario ingresa diciendo si esta o no conforme con la fecha
-
-     GetCh [response]
-     cmp byte[response],'y'
-     je verificarMes
-     jne inicio	
+atoiAnno: 
+        xor EAX,EAX
+        mov AL,byte[year + 0]
+        sub AL,30h
+        mov BX,1000
+        mul BX
+        mov [anno],AX
+        xor EAX,EAX
+        mov AL,byte[year + 1]
+        sub AL,30h
+        mov BX,100
+        mul BX
+        add [anno],AX
+        xor EAX,EAX
+        mov AL,byte[year + 2]
+        sub AL,30h
+        mov BX,10
+        mul BX
+        add [anno],AX
+        xor EAX,EAX
+        mov AL,byte[year + 3]
+        sub AL,30h
+        add [anno],AX
+        ret
 
 verificarMes:
 
@@ -204,6 +269,7 @@ determinarDia:
      mov BX,7          ;Se carga en el registro BX un 7
      div BX            ;Se divide en contenido de AX con BX 
      mov [resultado],DX;Se guarda el residuo (%) en resultado para obtener el día de la semana que cayó la fecha.
+     
 
 verificaResultado:
 	 cmp byte[resultado],1
@@ -269,23 +335,21 @@ esDomingo:
 
 esBisiesto: 
     PutStr bisiesto
-    jmp salir
+    call pregunta
     ret
 
 noBisiesto:
     PutStr noesBisiesto
-    jmp salir
+    call pregunta
     ret
 
 revisaBisiesto: 
-
        mov AX,[anno]
        mov BX,400
        mov EDX,0
        div BX
        cmp DX,0
        je esBisiesto
-
        mov AX,[anno]
        mov BX,4
        mov EDX,0
@@ -300,6 +364,14 @@ revisaBisiesto:
        jne esBisiesto
        je noBisiesto
        jmp salir
+     
+pregunta:
+      PutStr msjPregunta
+      GetCh [response]
+      cmp byte[response],'y'
+      je main
+      jne salir	
+
 
 imprimir:
 	mov eax,4
@@ -307,8 +379,7 @@ imprimir:
 	mov ecx,ecx
 	mov edx,edx
 	int 80h
-        call revisaBisiesto
 	ret
-	
+
 salir:
-   .EXIT	                                 
+    .EXIT
