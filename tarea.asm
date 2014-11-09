@@ -7,7 +7,7 @@
 ;*	   Profesor: Esteban Méndez				 *
 ;*	   							 *
 ;*****************************************************************
-%include "/home/emmanuelrs/Desktop/TareaArqui/io.mac"
+%include "/home/emmanuel/Desktop/TareaArqui/io.mac"
 
 .DATA
 
